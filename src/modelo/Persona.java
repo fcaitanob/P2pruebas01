@@ -1,0 +1,29 @@
+package modelo;
+
+public abstract class Persona {
+	protected int ci;
+
+	
+	public Persona(int ci) {
+		this.ci = ci;
+	}
+
+	public int getCi() {
+		return ci;
+	}
+
+	public void setCi(int ci) {
+		this.ci = ci;
+	}
+
+	@Override
+	public String toString() {
+		String texto;
+		texto = "Persona [CI=" + getCi() + "]\n";
+		return texto;
+
+	}
+	
+	
+
+}
