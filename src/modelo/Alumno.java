@@ -1,5 +1,5 @@
-package modelo;
-
+package modelo; 
+ 
 public abstract class Alumno extends Persona {
 	private String nombre;
 

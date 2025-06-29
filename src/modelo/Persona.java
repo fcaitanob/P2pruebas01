@@ -1,5 +1,5 @@
-package modelo;
-
+package modelo; 
+ 
 public abstract class Persona {
 	protected int ci;
 

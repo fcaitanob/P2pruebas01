@@ -1,5 +1,5 @@
-package modelo;
-
+package modelo; 
+ 
 public class Externo extends Alumno {
 	private String hobby;
 

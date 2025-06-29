@@ -1,0 +1,107 @@
+package controlador;
+
+import modelo.*;
+
+public class FachadaLogica {
+
+	private Alumnos alumnos;
+	private Administradores administradores;
+	
+	public FachadaLogica() {
+		alumnos = new Alumnos();
+		administradores = new Administradores();
+	}
+
+	public Alumnos getAlumnos() {
+		return alumnos;
+	}
+
+	public Administradores getAdministradores() {
+		return administradores;
+	}
+	
+	//----------------------------------
+	// Operaciones con alumnos 
+	//----------------------------------
+
+    public void altaAlumno(Alumno alu) {
+        alumnos.alta(alu);
+    }
+
+    public Alumno obtenerAlumno(int ci) {
+        return alumnos.obtiene(ci);
+    }
+
+    public boolean existeAlumno(int ci) {
+        return alumnos.consulta(ci);
+    }
+
+    public void bajaAlumno(int ci) {
+        alumnos.baja(ci);
+    }
+
+    public void mostrarAlumnos() {
+        alumnos.mostrarTodos();
+    }
+
+	//----------------------------------
+    // Operaciones con administradores
+	//----------------------------------
+
+    public void altaAdministrador(Administrador admin) {
+        administradores.alta(admin);
+    }
+
+    public Administrador obtenerAdministrador(int ci) {
+        return administradores.obtiene(ci);
+    }
+
+    public boolean existeAdministrador(int ci) {
+        return administradores.consulta(ci);
+    }
+
+    public void bajaAdministrador(int ci) {
+        administradores.baja(ci);
+    }
+
+    public void mostrarAdministradores() {
+        administradores.mostrarTodos();
+    }
+
+	//----------------------------------
+    // Otros
+	//----------------------------------
+
+    public void asignarAlumnoAAdministrador(int ciAlumno, int ciAdmin) {
+        Administrador admin = administradores.obtiene(ciAdmin);
+        Alumno alumno = alumnos.obtiene(ciAlumno);
+
+        if (admin != null && alumno != null && admin.getSecAlumnos().size() < 14) {
+            admin.agregarAlumno(alumno);
+        } else {
+            System.out.println("No se pudo asignar: administrador inexistente, alumno inexistente o límite alcanzado.");
+        }
+    }
+	
+	//---------------------------------------------------
+    // Interacción con modelo para que la fachada
+    // sea el único punto de control con la aplicación
+	//----------------------------------------------------
+
+    public void altaAlumnoExterno(int ci, String nombre, String hobby) {
+        Alumno a = new Externo(ci, nombre, hobby);
+        alumnos.alta(a);
+    }
+
+    public void altaAlumnoInterno(int ci, String nombre, String regimen) {
+        Alumno a = new Interno(ci, nombre, regimen);
+        alumnos.alta(a);
+    }
+
+    public void altaAdministrador(int ci) {
+        Administrador admin = new Administrador(ci);
+        administradores.alta(admin);
+    }
+	
+	
+}

@@ -1,5 +1,5 @@
-package modelo;
-
+package modelo; 
+ 
 import java.util.HashMap;
 
 public class Alumnos {

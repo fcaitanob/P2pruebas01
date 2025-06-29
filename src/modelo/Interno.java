@@ -1,5 +1,5 @@
-package modelo;
-
+package modelo; 
+ 
 public class Interno extends Alumno {
 	 private String regAlim;  // Régimen alimentario
 

@@ -1,4 +1,4 @@
-package modelo;
+package modelo;  
 
 import java.util.ArrayList;
 
@@ -12,7 +12,17 @@ public class Administrador extends Persona {
         this.secAlumnos = new ArrayList<>();
     }
 
-    public boolean agregarAlumno(Alumno a) {
+    
+    
+    
+    public ArrayList<Alumno> getSecAlumnos() {
+		return secAlumnos;
+	}
+
+
+
+
+	public boolean agregarAlumno(Alumno a) {
         if (secAlumnos.size() < MAX_ALUMNOS) {
             secAlumnos.add(a);
             return true;
