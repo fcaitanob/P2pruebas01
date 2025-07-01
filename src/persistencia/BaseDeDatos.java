@@ -25,7 +25,7 @@ public class BaseDeDatos {
 	    try {
 			// Establecemos la conexión con la base de datos.
 			conn = DriverManager.getConnection (url,user, password);	
-			System.out.println("Conexión exitosa");
+			//System.out.println("Conexión exitosa");
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	    }
@@ -38,7 +38,7 @@ public class BaseDeDatos {
 	    if (conn != null) {
 	        try {
 	            conn.close();
-	            System.out.println("Conexión cerrada");
+	            //System.out.println("Conexión cerrada");
 	        } catch (SQLException e) {
 	            System.out.println("Error al cerrar la conexión:");
 	            e.printStackTrace();
