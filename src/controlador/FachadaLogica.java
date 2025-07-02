@@ -76,7 +76,8 @@ public class FachadaLogica {
         Administrador admin = administradores.obtiene(ciAdmin);
         Alumno alumno = alumnos.obtiene(ciAlumno);
 
-        if (admin != null && alumno != null && admin.getSecAlumnos().size() < 14) {
+        if (admin != null && alumno != null && admin.getSecAlumnos().size() < Administrador.MAX_ALUMNO 
+        		&& alumno.getSecAdministradores().size() < Alumno.MAX_ADMINISTRADOR) {
             admin.agregarAlumno(alumno);
         } else {
             System.out.println("No se pudo asignar: administrador inexistente, alumno inexistente o límite alcanzado.");

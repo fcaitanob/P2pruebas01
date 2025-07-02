@@ -1,6 +1,8 @@
 package aplicacion;
 
 import java.util.ArrayList;
+import java.util.Scanner;
+
 import controlador.*;
 import persistencia.*;
 import modelo.*;
@@ -8,11 +10,35 @@ import modelo.*;
 
 public class Principal {
 
-	public static void main(String[] args) {
+	// Crea atributo de conexión con el modelo utilizando una fachada
+	public static FachadaLogica fl = new FachadaLogica();
+	public static FachadaPersistencia fp = new FachadaPersistencia();
+	static Scanner scan = new Scanner(System.in);
+	
 
-		// Crea atributo de conexión con el modelo utilizando una fachada
-		FachadaLogica fl = new FachadaLogica();
-		FachadaPersistencia fp = new FachadaPersistencia();
+	public static void mostrarMenu() {
+		
+        System.out.println("Menú principal-----------------------\n");
+        System.out.println("1. Listar alumnos\n");
+        System.out.println("2. Listar administradores\n");
+        System.out.println("3. Consultar alumno\n");
+        
+        System.out.println("90. Fin\n");
+		
+	}
+
+	
+	
+	
+	public static void consultarAlumno() {
+		int ci = 0;
+		System.out.println("Ingrese alumno para consultar: ");
+		ci = scan.nextInt();
+		System.out.println(fl.obtenerAlumno(ci).toString());
+	}
+	
+	
+	public static void inicializar() {
 		
         // Alta de alumnos internos desde la BD
 		ArrayList<Interno> ali = fp.internos();
@@ -25,27 +51,56 @@ public class Principal {
 		for(int i = 0; i< ale.size(); i++) {
 	        fl.altaAlumnoExterno(ale.get(i).getCi(), ale.get(i).getNombre(), ale.get(i).getHobby());
 		}
+		
+		// tomar desde la BD
+		// Alta de administrador 1
+        //System.out.println("\nAlta de administrador:-----------------------\n");
+        fl.altaAdministrador(99999999);
+        fl.asignarAlumnoAAdministrador(11111111, 99999999);
+        fl.asignarAlumnoAAdministrador(22222222, 99999999);
+        
+        //System.out.println("Lista de administradores:-----------------------\n");
+        //fl.mostrarAdministradores();
 
-        // Mostrar todos los alumnos
-        System.out.println("Listado de alumnos:-----------------------");
-        fl.mostrarAlumnos();
+        // Alta de administrador 2
+        //System.out.println("\nAlta de administrador2:-----------------------\n");
+        fl.altaAdministrador(88888888);
+        fl.asignarAlumnoAAdministrador(44444444, 88888888);
+        fl.asignarAlumnoAAdministrador(33333333, 88888888);
+        fl.asignarAlumnoAAdministrador(22222222, 88888888);
+		
+	}
+	
+	public static void main(String[] args) {
+	
+		// Cargo objetos desde la BD
+		inicializar();
+		
+		
+		//Menú principal
+		int opcion = 0;
+		
+		do {
+			mostrarMenu();
+			opcion = scan.nextInt();
+			switch (opcion) {
+			case 1: 
+				fl.mostrarAlumnos();
+				break;
+			case 3: 
+				consultarAlumno();
+				break;
+			case 90:
+				System.out.println("Fin del programa");
+				break;
+			default:
+				System.out.println("Opción inválida");
+			}
+			System.out.println();
+			
+		} while (opcion != 90);
 
-        // Consultar si existe un alumno
-        int ciConsulta = 12345678;
-        System.out.println("\nConsulta por CI " + ciConsulta + ":-----------------");
-        if (fl.existeAlumno(ciConsulta)) {
-            System.out.println("Existe: " + fl.obtenerAlumno(ciConsulta));
-        } else {
-            System.out.println("No existe alumno con CI " + ciConsulta);
-        }
-        // Consultar si existe un alumno
-        ciConsulta = 11111111;
-        System.out.println("\nConsulta por CI " + ciConsulta + ":-----------------");
-        if (fl.existeAlumno(ciConsulta)) {
-            System.out.println("Existe alumno \n" + fl.obtenerAlumno(ciConsulta));
-        } else {
-            System.out.println("No existe alumno con CI " + ciConsulta);
-        }
+		scan.close();
 
         // Baja de alumnos ----------------
         int ciBaja = 87654321;
@@ -68,20 +123,6 @@ public class Principal {
         System.out.println("\nListado actualizado de alumnos:-----------------------");
         fl.mostrarAlumnos();
         
-        // Alta de administrador 1
-        System.out.println("\nAlta de administrador:-----------------------\n");
-        fl.altaAdministrador(99999999);
-        fl.asignarAlumnoAAdministrador(11111111, 99999999);
-        fl.asignarAlumnoAAdministrador(22222222, 99999999);
-        
-        System.out.println("Lista de administradores:-----------------------\n");
-        fl.mostrarAdministradores();
-
-        // Alta de administrador 2
-        System.out.println("\nAlta de administrador2:-----------------------\n");
-        fl.altaAdministrador(88888888);
-        fl.asignarAlumnoAAdministrador(44444444, 88888888);
-        fl.asignarAlumnoAAdministrador(33333333, 88888888);
         
         System.out.println("Lista de administradores:-----------------------\n");
         fl.mostrarAdministradores();

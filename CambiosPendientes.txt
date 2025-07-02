@@ -1,4 +1,4 @@
 Pendientes............
-En alumno controlar hasta 3 administradores 
-	    1. private static final int MAX_ADMINS = 3;
-	    2. public boolean agregarAdmin(Administrador a) {};
+ramas Github
+Menu principal --- en proceso ---
+tomar administradores desde la bd

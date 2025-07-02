@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Administrador extends Persona {
 
     private ArrayList<Alumno> secAlumnos;
-    private static final int MAX_ALUMNOS = 14;
+    public static final int MAX_ALUMNO = 14;
 
     public Administrador(int ci) {
         super(ci);
@@ -23,11 +23,11 @@ public class Administrador extends Persona {
 
 
 	public boolean agregarAlumno(Alumno a) {
-        if (secAlumnos.size() < MAX_ALUMNOS) {
+        if (secAlumnos.size() < MAX_ALUMNO) {
             secAlumnos.add(a);
             return true;
         } else {
-            System.out.println("No se puede agregar más de " + MAX_ALUMNOS + " alumnos.");
+            System.out.println("No se puede agregar más de " + MAX_ALUMNO + " alumnos.");
             return false;
         }
     }
