@@ -1,5 +1,7 @@
 package persistencia;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -11,6 +13,46 @@ public class FachadaPersistencia {
 	BaseDeDatos BD = new BaseDeDatos();
 
 
+	//----------------------------------------
+	// Alta de alumno externo en la BD
+	//----------------------------------------
+	public void guardarAlumnoExterno(Externo externo) {
+	    Connection conn = BD.conectar();
+
+	    try {
+	        String sql1 = "INSERT INTO alumnos (CI, nombre, edad, direccion, cuotaMensual, cuotaReal) VALUES (?, ?, ?, ?, ?, ?)";
+	        PreparedStatement ps1 = conn.prepareStatement(sql1);
+	        ps1.setInt(1, externo.getCi());
+	        ps1.setString(2, externo.getNombre());
+	        ps1.setInt(3, externo.getEdad());
+	        ps1.setString(4, externo.getDireccion());
+	        ps1.setInt(5, externo.getCuotaMensual());
+	        ps1.setInt(6, externo.getCuotaReal());
+	        ps1.executeUpdate();
+
+	        String sql2 = "INSERT INTO aluexterno (ci, hobby) VALUES (?, ?)";
+	        PreparedStatement ps2 = conn.prepareStatement(sql2);
+	        ps2.setInt(1, externo.getCi());
+	        ps2.setString(2, externo.getHobby());
+	        ps2.executeUpdate();
+	        
+	        String sql3 = "INSERT INTO personas (ci) VALUES (?)";
+	        PreparedStatement ps3 = conn.prepareStatement(sql3);
+	        ps3.setInt(1, externo.getCi());
+	        ps3.executeUpdate();
+
+	        
+	        
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        BD.desconectar();
+	    }
+	}
+
+	
+	
+	
 	//----------------------------------------
 	// Administradores x alumnos desde la BD
 	//----------------------------------------

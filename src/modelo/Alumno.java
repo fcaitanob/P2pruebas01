@@ -4,6 +4,10 @@ import java.util.ArrayList;
 
 public abstract class Alumno extends Persona {
 	private String nombre;
+	private int edad;
+	private String direccion;
+	private int cuotaMensual;
+	private int cuotaReal;
 
 	private ArrayList<Administrador> secAdministradores;
     public static final int MAX_ADMINISTRADOR = 3;
@@ -26,6 +30,40 @@ public abstract class Alumno extends Persona {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+
+	
+	
+	public int getEdad() {
+		return edad;
+	}
+
+	public void setEdad(int edad) {
+		this.edad = edad;
+	}
+
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
+	public int getCuotaMensual() {
+		return cuotaMensual;
+	}
+
+	public void setCuotaMensual(int cuotaMensual) {
+		this.cuotaMensual = cuotaMensual;
+	}
+
+	public int getCuotaReal() {
+		return cuotaReal;
+	}
+
+	public void setCuotaReal(int cuotaReal) {
+		this.cuotaReal = cuotaReal;
 	}
 
 	@Override // ayuda para no equivocarse en el nombre del método que debe existir
