@@ -1,5 +1,7 @@
 package controlador;
 
+import java.util.ArrayList;
+
 import modelo.*;
 
 public class FachadaLogica {
@@ -32,6 +34,18 @@ public class FachadaLogica {
         return alumnos.obtiene(ci);
     }
 
+    public ArrayList<Administrador> obtenerAdmsDeAlumno(int ci) {
+        Alumno al;
+        ArrayList<Administrador> li = new ArrayList<Administrador>();
+        al = alumnos.obtiene(ci);
+        li = al.getSecAdministradores();
+        //System.out.println("estoy en obtenerAdmsDealumno.....");
+        //System.out.println(al.toString());
+        return li;
+    }
+    
+    
+    
     public boolean existeAlumno(int ci) {
         return alumnos.consulta(ci);
     }
@@ -79,6 +93,7 @@ public class FachadaLogica {
         if (admin != null && alumno != null && admin.getSecAlumnos().size() < Administrador.MAX_ALUMNO 
         		&& alumno.getSecAdministradores().size() < Alumno.MAX_ADMINISTRADOR) {
             admin.agregarAlumno(alumno);
+            alumno.agregarAdministrador(admin);
         } else {
             System.out.println("No se pudo asignar: administrador inexistente, alumno inexistente o límite alcanzado.");
         }

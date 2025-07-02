@@ -33,6 +33,7 @@ public abstract class Alumno extends Persona {
 		String texto;
 		texto = super.toString() ;
 		texto += "Alumno [nombre=" + getNombre() + "]\n";
+		texto += "SecAdministradores cant: " + this.getSecAdministradores().size() + "\n";
 		return texto;
 	}
 	

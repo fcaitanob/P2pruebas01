@@ -41,6 +41,12 @@ public class Principal {
 		System.out.println("Ingrese alumno para consultar: ");
 		ci = scan.nextInt();
 		System.out.println(fl.obtenerAlumno(ci).toString());
+		ArrayList<Administrador> li = new ArrayList<Administrador>();
+		li = fl.obtenerAdmsDeAlumno(ci);
+		System.out.println("Administradores del alumno: ----------");
+		for(int i=0; i<li.size(); i++) {
+			System.out.println(li.get(i).getCi());
+		}
 	}
 	
 	
