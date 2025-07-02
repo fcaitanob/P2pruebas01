@@ -16,6 +16,9 @@ public class Principal {
 	static Scanner scan = new Scanner(System.in);
 	
 
+	//-------------------------------------
+	// Texto menu
+	//-------------------------------------
 	public static void mostrarMenu() {
 		
         System.out.println("Menú principal-----------------------\n");
@@ -30,6 +33,9 @@ public class Principal {
 	
 	
 	
+	//-------------------------------------
+	// Consultar alumno
+	//-------------------------------------
 	public static void consultarAlumno() {
 		int ci = 0;
 		System.out.println("Ingrese alumno para consultar: ");
@@ -38,6 +44,9 @@ public class Principal {
 	}
 	
 	
+	//----------------------------------------
+	// Inicializar objetos y cargar desde BD
+	//----------------------------------------
 	public static void inicializar() {
 		
         // Alta de alumnos internos desde la BD
@@ -52,40 +61,40 @@ public class Principal {
 	        fl.altaAlumnoExterno(ale.get(i).getCi(), ale.get(i).getNombre(), ale.get(i).getHobby());
 		}
 		
-		// tomar desde la BD
-		// Alta de administrador 1
-        //System.out.println("\nAlta de administrador:-----------------------\n");
-        fl.altaAdministrador(99999999);
-        fl.asignarAlumnoAAdministrador(11111111, 99999999);
-        fl.asignarAlumnoAAdministrador(22222222, 99999999);
-        
-        //System.out.println("Lista de administradores:-----------------------\n");
-        //fl.mostrarAdministradores();
+		// Alta de administradores desde la BD
+		ArrayList<Administrador> admins = fp.administradores();
+		for(int i = 0; i< admins.size(); i++) {
+	        fl.altaAdministrador(admins.get(i).getCi());
+		}
 
-        // Alta de administrador 2
-        //System.out.println("\nAlta de administrador2:-----------------------\n");
-        fl.altaAdministrador(88888888);
-        fl.asignarAlumnoAAdministrador(44444444, 88888888);
-        fl.asignarAlumnoAAdministrador(33333333, 88888888);
-        fl.asignarAlumnoAAdministrador(22222222, 88888888);
-		
+
+		// Alta de administradores x alumno desde la BD
+		ArrayList<AdmControlaAlumno> li = fp.admXalu();
+		for(int i = 0; i< li.size(); i++) {
+			//System.out.println("alumno: " + li.get(i).getCiAlumno());
+			//System.out.println("admin: " + li.get(i).getCiAdmin());
+	        fl.asignarAlumnoAAdministrador(li.get(i).getCiAlumno(), li.get(i).getCiAdmin());
+		}
 	}
 	
+	//-----------------------------------------
+	// Menú ppal
+	//-----------------------------------------
 	public static void main(String[] args) {
-	
 		// Cargo objetos desde la BD
 		inicializar();
-		
-		
+
 		//Menú principal
 		int opcion = 0;
-		
 		do {
 			mostrarMenu();
 			opcion = scan.nextInt();
 			switch (opcion) {
 			case 1: 
 				fl.mostrarAlumnos();
+				break;
+			case 2: 
+				fl.mostrarAdministradores();
 				break;
 			case 3: 
 				consultarAlumno();
@@ -102,30 +111,33 @@ public class Principal {
 
 		scan.close();
 
-        // Baja de alumnos ----------------
-        int ciBaja = 87654321;
-        System.out.println("\nEliminando alumno con CI " + ciBaja + " -----------------------");
-        if (fl.existeAlumno(ciBaja)) {
-        	fl.bajaAlumno(ciBaja);
-        } else {
-        	System.out.println("Alumno no existe para dar de baja");
-        }
-
-        ciBaja = 33333339;
-        System.out.println("\nEliminando alumno con CI " + ciBaja + " -----------------------");
-        if (fl.existeAlumno(ciBaja)) {
-        	fl.bajaAlumno(ciBaja);
-        } else {
-        	System.out.println("Alumno no existe para dar de baja");
-        }
-        
-        // Mostrar todos los alumnos después de la baja
-        System.out.println("\nListado actualizado de alumnos:-----------------------");
-        fl.mostrarAlumnos();
-        
-        
-        System.out.println("Lista de administradores:-----------------------\n");
-        fl.mostrarAdministradores();
+		// codigo muerto para ver más adelante
+		if(false) {
+			// Baja de alumnos ----------------
+	        int ciBaja = 87654321;
+	        System.out.println("\nEliminando alumno con CI " + ciBaja + " -----------------------");
+	        if (fl.existeAlumno(ciBaja)) {
+	        	fl.bajaAlumno(ciBaja);
+	        } else {
+	        	System.out.println("Alumno no existe para dar de baja");
+	        }
+	
+	        ciBaja = 33333339;
+	        System.out.println("\nEliminando alumno con CI " + ciBaja + " -----------------------");
+	        if (fl.existeAlumno(ciBaja)) {
+	        	fl.bajaAlumno(ciBaja);
+	        } else {
+	        	System.out.println("Alumno no existe para dar de baja");
+	        }
+	        
+	        // Mostrar todos los alumnos después de la baja
+	        System.out.println("\nListado actualizado de alumnos:-----------------------");
+	        fl.mostrarAlumnos();
+	        
+	        
+	        System.out.println("Lista de administradores:-----------------------\n");
+	        fl.mostrarAdministradores();
+		}
 
     }	
 

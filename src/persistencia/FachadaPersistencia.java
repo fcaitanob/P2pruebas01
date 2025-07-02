@@ -3,14 +3,43 @@ package persistencia;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 import modelo.*;
 
 public class FachadaPersistencia {
 	BaseDeDatos BD = new BaseDeDatos();
 
+
+	//----------------------------------------
+	// Administradores x alumnos desde la BD
+	//----------------------------------------
+	public ArrayList<AdmControlaAlumno> admXalu() {
+		BD.conectar();
+		String sql = "SELECT * FROM p2pruebas01.administra a ";
+		ResultSet rs = BD.ejecutarConsulta(sql);
+		ArrayList<AdmControlaAlumno> li = new ArrayList<AdmControlaAlumno>();
+		try {
+			while (rs.next()) {
+					AdmControlaAlumno admXal = new AdmControlaAlumno(rs.getInt("ciadmin"), rs.getInt("cialumno"));
+					li.add(admXal);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		BD.desconectar();
+		return li;
+		
+	}
+
 	
-	// Alumnos internos en la BD
+	
+	
+	//-------------------------------------
+	// Alumnos internos desde la BD
+	//-------------------------------------
 	public ArrayList<Interno> internos() {
 		BD.conectar();
 		String sql = "SELECT * FROM p2pruebas01.alumnos a "
@@ -37,7 +66,9 @@ public class FachadaPersistencia {
 		
 	}
 	
-	// Alumnos externos en la BD
+	//-------------------------------------
+	// Alumnos externos desde la BD
+	//-------------------------------------
 	public ArrayList<Externo> externos() {
 		BD.conectar();
 		String sql = "SELECT * FROM p2pruebas01.alumnos a "
@@ -61,11 +92,34 @@ public class FachadaPersistencia {
 		
 		BD.desconectar();
 		return li;
+	}
+	
+	//-------------------------------------
+	// Administradores desde la BD
+	//-------------------------------------
+	public ArrayList<Administrador> administradores() {
+		BD.conectar();
+		String sql = "SELECT * FROM p2pruebas01.administradores a ";
+		ResultSet rs = BD.ejecutarConsulta(sql);
+		ArrayList<Administrador> li = new ArrayList<Administrador>();
+		try {
+			while (rs.next()) {
+					Administrador admin = new Administrador(1);
+					admin.setCi(rs.getInt("ci"));
+					li.add(admin);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
+		BD.desconectar();
+		return li;
 	}
 	
 	
-	
+	//-------------------------------------
+	// main que solo se usa para probar
+	//-------------------------------------
 	public static void main(String[] args) {
 		ArrayList<Interno> li = null;
 		FachadaPersistencia fp = new FachadaPersistencia();
