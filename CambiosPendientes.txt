@@ -1,4 +1,3 @@
 Pendientes............
-ramas Github
-Menu principal --- en proceso ---
-tomar administradores desde la bd
+ramas Github - mejoras_menu_principal
+menu ppal poner más opciones (bajas de relacion, modificaciones, etc)
