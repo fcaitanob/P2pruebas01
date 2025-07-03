@@ -107,6 +107,7 @@ public class FachadaLogica {
     public void altaAlumnoExterno(int ci, String nombre, String hobby) {
         Alumno a = new Externo(ci, nombre, hobby);
         alumnos.alta(a);
+        
     }
 
     public void altaAlumnoInterno(int ci, String nombre, String regimen) {

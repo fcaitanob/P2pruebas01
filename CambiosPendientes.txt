@@ -1,5 +1,6 @@
 Pendientes............
-ramas Github - mejoras_menu_principal
+
 menu ppal poner más opciones (alta alumno externo)
 ...guardarAlumnoExterno en proceso (fachadaPersistencia) 
-dump de la BD para github (en proceso)
+Pruebas unitarias
+Logs en archivo

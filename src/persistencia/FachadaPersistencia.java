@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 import modelo.*;
 
@@ -16,7 +15,7 @@ public class FachadaPersistencia {
 	//----------------------------------------
 	// Alta de alumno externo en la BD
 	//----------------------------------------
-	public void guardarAlumnoExterno(Externo externo) {
+	public void altaAlumnoExternoBD(Externo externo) {
 	    Connection conn = BD.conectar();
 
 	    try {

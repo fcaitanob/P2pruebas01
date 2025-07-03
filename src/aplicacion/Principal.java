@@ -22,15 +22,53 @@ public class Principal {
 	public static void mostrarMenu() {
 		
         System.out.println("Menú principal-----------------------\n");
-        System.out.println("1. Listar alumnos\n");
-        System.out.println("2. Listar administradores\n");
-        System.out.println("3. Consultar alumno\n");
+        System.out.println("1. Listar alumnos");
+        System.out.println("2. Listar administradores");
+        System.out.println("3. Consultar alumno");
+        System.out.println("4. Alta alumno externo");
         
         System.out.println("90. Fin\n");
 		
 	}
 
 	
+	//-------------------------------------
+	// Alta alumno externo y guardar en BD
+	//-------------------------------------
+	public static void altaAlumnoExterno() {
+		int ci = 0;
+		System.out.println("Ingrese cédula de alumno externo para dar de alta: ");
+		ci = scan.nextInt();
+		String nombre = "";
+		System.out.println("Ingrese nombre: ");
+		scan.nextLine(); // consumir el ENTER pendiente
+		nombre = scan.nextLine();
+		int edad = 0;
+		System.out.println("Ingrese edad: ");
+		edad = scan.nextInt();
+		String direccion = "";
+		System.out.println("Ingrese dirección: ");
+		scan.nextLine(); // consumir el ENTER pendiente
+		nombre = scan.nextLine();
+		float cuotaMensual = 0;
+		System.out.println("Ingrese cuota mensual: ");
+		cuotaMensual = scan.nextFloat();
+		String hobby = "";
+		System.out.println("Ingrese hobby: ");
+		scan.nextLine(); // consumir el ENTER pendiente
+		hobby = scan.nextLine();
+		int admin = 0;
+		System.out.println("Ingrese administrador: ");
+		admin = scan.nextInt();
+		
+		
+		fl.altaAlumnoExterno(ci, nombre, hobby);
+		fl.asignarAlumnoAAdministrador(ci, admin);
+		Externo aluExt = new Externo(ci, nombre, hobby);
+		aluExt = (Externo) fl.obtenerAlumno(ci);
+		fp.altaAlumnoExternoBD(aluExt);
+		
+	}
 	
 	
 	//-------------------------------------
@@ -104,6 +142,9 @@ public class Principal {
 				break;
 			case 3: 
 				consultarAlumno();
+				break;
+			case 4: 
+				altaAlumnoExterno();
 				break;
 			case 90:
 				System.out.println("Fin del programa");
