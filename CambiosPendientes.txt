@@ -1,6 +1,5 @@
 Pendientes............
 
 menu ppal poner más opciones (alta alumno externo)
-...guardarAlumnoExterno en proceso (fachadaPersistencia) 
+...guardarAlumnoExterno en proceso (falta alta administrador del alumno en la BD) 
 Pruebas unitarias
-Logs en archivo

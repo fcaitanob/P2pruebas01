@@ -119,6 +119,11 @@ public class Principal {
 			//System.out.println("admin: " + li.get(i).getCiAdmin());
 	        fl.asignarAlumnoAAdministrador(li.get(i).getCiAlumno(), li.get(i).getCiAdmin());
 		}
+		
+		// Inicializo log
+		//LogFile.creoLog();
+		LogFile.escriboLog("Inicio del log");
+		
 	}
 	
 	//-----------------------------------------
@@ -133,6 +138,7 @@ public class Principal {
 		do {
 			mostrarMenu();
 			opcion = scan.nextInt();
+			LogFile.escriboLog("Opción seleccionada: " + opcion);
 			switch (opcion) {
 			case 1: 
 				fl.mostrarAlumnos();
