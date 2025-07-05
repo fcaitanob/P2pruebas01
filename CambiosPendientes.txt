@@ -2,9 +2,11 @@ Pendientes............
 
 menu ppal poner más opciones (alta alumno externo)
 ...guardarAlumnoExterno en proceso (falta alta administrador del alumno en la BD) 
-Pruebas unitarias (por ahora AlumnoTest y PersonaTest)
 
-Hacer cálculo de la cuota
+Pruebas unitarias (en rama pruebas_unitarias)
+....por ahora AlumnoTest, PersonaTest y AdministradorTest
+
+Hacer cálculo de la cuota (en rama calculo_cuota)
 
 
 
