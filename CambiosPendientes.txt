@@ -13,6 +13,7 @@ sabado 5/7: se elimina rama mejoras_menu_principal desde github (Branches y dele
 	- Sincronizar eclipse: P2pruebas01 - team - remote - fech
 	- Eliminar rama local: gitRepositories - Branches - Local - Mejoras_menu...-BDerecho - Delete Branch
 		- Remote tracking: mejoras_menu...-Delete Branch
+Github pruebas_unitarias--------------
 5/7: se crea rama pruebasJunit desde Eclipse:
 	- Git Repositories, Branches, click derecho, Switch to, new branch (check out marcado y configure upstream)
 	- publicar en github: team, push branch 'pruebas_unitarias'
