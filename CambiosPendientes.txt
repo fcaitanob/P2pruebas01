@@ -5,3 +5,17 @@ menu ppal poner más opciones (alta alumno externo)
 Pruebas unitarias (por ahora AlumnoTest y PersonaTest)
 
 Hacer cálculo de la cuota
+
+
+
+Github-----------
+sabado 5/7: se elimina rama mejoras_menu_principal desde github (Branches y delete)
+	- Sincronizar eclipse: P2pruebas01 - team - remote - fech
+	- Eliminar rama local: gitRepositories - Branches - Local - Mejoras_menu...-BDerecho - Delete Branch
+		- Remote tracking: mejoras_menu...-Delete Branch
+5/7: se crea rama pruebasJunit desde Eclipse:
+	- Git Repositories, Branches, click derecho, Switch to, new branch (check out marcado y configure upstream)
+	- publicar en github: team, push branch 'pruebas_unitarias'
+	- verificar que se ve en github
+	
+
