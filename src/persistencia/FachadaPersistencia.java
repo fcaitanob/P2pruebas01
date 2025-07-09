@@ -25,8 +25,8 @@ public class FachadaPersistencia {
 	        ps1.setString(2, externo.getNombre());
 	        ps1.setInt(3, externo.getEdad());
 	        ps1.setString(4, externo.getDireccion());
-	        ps1.setInt(5, externo.getCuotaMensual());
-	        ps1.setInt(6, externo.getCuotaReal());
+	        ps1.setFloat(5, externo.getCuotaMensual());
+	        ps1.setFloat(6, externo.getCuotaReal());
 	        ps1.executeUpdate();
 
 	        String sql2 = "INSERT INTO aluexterno (ci, hobby) VALUES (?, ?)";

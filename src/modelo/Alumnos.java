@@ -32,5 +32,9 @@ public class Alumnos {
         }
     }
 
+	public HashMap<Integer, Alumno> getTablaAlumnos() {
+		return tablaAlumnos;
+	}
+
 
 }

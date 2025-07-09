@@ -12,6 +12,11 @@ class AlumnoTest {
 		public AlumnoAux(int ci, String nombre) {
 			super(ci, nombre);
 		}
+		@Override
+		public float calculoCuota() {
+			return 0;
+		}
+
 	}
 	
 	@Test

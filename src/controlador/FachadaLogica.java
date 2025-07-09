@@ -1,6 +1,7 @@
 package controlador;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import modelo.*;
 
@@ -44,7 +45,13 @@ public class FachadaLogica {
         return li;
     }
     
-    
+    public void calcularCuotasTodos() {
+    	
+    	// recorro el hashmap y calculo la cuota para cada alumno.
+    	for(Map.Entry<Integer, Alumno> entrada : alumnos.getTablaAlumnos().entrySet()) {
+    		entrada.getValue().calculoCuota();
+    	}
+    }
     
     public boolean existeAlumno(int ci) {
         return alumnos.consulta(ci);

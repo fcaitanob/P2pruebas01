@@ -6,8 +6,8 @@ public abstract class Alumno extends Persona {
 	private String nombre;
 	private int edad;
 	private String direccion;
-	private int cuotaMensual;
-	private int cuotaReal;
+	private float cuotaMensual;
+	private float cuotaReal;
 
 	private ArrayList<Administrador> secAdministradores;
     public static final int MAX_ADMINISTRADOR = 3;
@@ -50,15 +50,15 @@ public abstract class Alumno extends Persona {
 		this.direccion = direccion;
 	}
 
-	public int getCuotaMensual() {
+	public float getCuotaMensual() {
 		return cuotaMensual;
 	}
 
-	public void setCuotaMensual(int cuotaMensual) {
-		this.cuotaMensual = cuotaMensual;
+	public void setCuotaMensual(float cuota) {
+		this.cuotaMensual = cuota;
 	}
 
-	public int getCuotaReal() {
+	public float getCuotaReal() {
 		return cuotaReal;
 	}
 
@@ -75,6 +75,7 @@ public abstract class Alumno extends Persona {
 		return texto;
 	}
 	
+	
 	public boolean agregarAdministrador(Administrador a) {
         if (secAdministradores.size() < MAX_ADMINISTRADOR) {
             secAdministradores.add(a);
@@ -85,7 +86,8 @@ public abstract class Alumno extends Persona {
         }
     }
 	
-	
+	// Método abstracto que se debe implementar en las subclases
+	public abstract float calculoCuota() ;
 	
 	
 	
