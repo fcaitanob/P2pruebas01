@@ -14,6 +14,8 @@ public class Ej05 {
 		LinkedList<String> lListString = new LinkedList<String>();
 		
 		lListString.add("BBB");
+		lListString.add("BBB");
+		lListString.add("BBB");
 		lListString.add("ccc");
 		
 		System.out.println("Listo incial............");

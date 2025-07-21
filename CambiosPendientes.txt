@@ -2,7 +2,7 @@ Pendientes............
 
 menu ppal poner más opciones (alta alumno externo)
 ...guardarAlumnoExterno en proceso (falta alta administrador del alumno en la BD) 
-
+...hacer otras mejoras
 
 
 Github-----------
@@ -21,5 +21,10 @@ sábado 5/7, luego de haber creado la rama pruebas_unitarias para trabajar en pa
 	- Git Repositories, Branches, Local, Switch to, New Branch, calculo_cuota y configure upstream... tildado
 	- Boton derecho, team, push branch 'calculo de cuota'
 	Hacer cálculo de la cuota (en rama calculo_cuota)
-	
+
+martes 8/7 dejo todo en master y eliminos la dos ramas (calculo_cuota y pruebas_unitarias)
+8/7 rama mejoras_varias
+Ahora sigo con nueva rama mejora_varias
+
+
 
