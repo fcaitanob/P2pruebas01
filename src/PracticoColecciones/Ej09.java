@@ -1,5 +1,7 @@
 package PracticoColecciones;
 
+import java.util.Arrays;
+
 /*
 9 Escriba un programa Java para asociar el valor especificado con la clave especificada 
 en un HashMap. 
@@ -52,6 +54,27 @@ public class Ej09 {
         	
         }
         
+
+        // Recorrer con for ordenado
+        System.out.println("Utilizar solo for ordenado-----------");
+        int tamanio = hm.size();
+        int [] indices = new int[tamanio] ;
+        int x = 0;
+        for (Integer i: hm.keySet()) {
+        	indices[x] = i;
+        	x++;
+//        	System.out.println("Clave: " + i + ", Valor: " + hm.get(i) );
+        	
+        }
+        Arrays.sort(indices);
+        for (int i=0; i<hm.size(); i++) {
+        	System.out.println("Clave: " + indices[i] + " Valor: " + hm.get(indices[i])  );
+        	
+        }
+
+	
+	
+	
 	}
 
 }
