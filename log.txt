@@ -4,3 +4,10 @@
 2025-07-31 22:37:51.820: Inicio del log
 2025-07-31 22:38:02.805: Opción seleccionada: 1
 2025-07-31 22:49:25.086: Inicio del log
+2025-07-31 22:59:54.075: Inicio del log
+2025-07-31 23:12:10.709: Opción seleccionada: 90
+2025-07-31 23:12:19.549: Inicio del log
+2025-07-31 23:12:23.516: Opción seleccionada: 1
+2025-08-01 14:33:29.738: Inicio del log
+2025-08-01 14:33:33.961: Opción seleccionada: 1
+2025-08-01 14:33:52.219: Opción seleccionada: 90

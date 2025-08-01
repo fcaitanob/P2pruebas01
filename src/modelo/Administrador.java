@@ -41,7 +41,7 @@ public class Administrador extends Persona {
 	public boolean agregarAlumno(Alumno a) {
         if (secAlumnos.size() < MAX_ALUMNO) {
             secAlumnos.add(a);
-            a.agregarAdministrador(this);
+            //a.agregarAdministrador(this);
             return true;
         } else {
             System.out.println("No se puede agregar más de " + MAX_ALUMNO + " alumnos.");
@@ -50,7 +50,7 @@ public class Administrador extends Persona {
     }
 
     public void mostrarAlumnos() {
-        System.out.println("Administrador CI: " + ci + " tiene los siguientes alumnos:");
+        System.out.println("Administrador CI: " + this.getCi() + " tiene los siguientes alumnos:");
         for (Alumno a : secAlumnos) {
             System.out.println(a);
         }
@@ -59,7 +59,7 @@ public class Administrador extends Persona {
     @Override
     public String toString() {
     	String texto = "";
-    	texto += "Administrador [CI=" + ci + ", Cantidad de alumnos=" + secAlumnos.size() + "]\n";
+    	texto += "Administrador [CI=" + this.getCi() + ", Cantidad de alumnos=" + secAlumnos.size() + "]\n";
     	for (Alumno a : secAlumnos) {
     		texto += "*";
             texto += a.toString();

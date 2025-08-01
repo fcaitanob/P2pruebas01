@@ -1,7 +1,7 @@
 package modelo; 
  
 public abstract class Persona {
-	protected int ci;
+	private int ci;
 
 	
 	public Persona(int ci) {
