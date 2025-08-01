@@ -21,6 +21,7 @@ public class Ej01 {
 		ArrayList<String> autos = new ArrayList<String>();
 		autos.add("Fiat 850");
 		autos.add("Susuki Fronx");
+		autos.set(1, "nuevo susuki");
 		
 		System.out.println(autos.get(1));
 		int largo = autos.size();

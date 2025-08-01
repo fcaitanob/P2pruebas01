@@ -23,6 +23,7 @@ public class Ej09 {
 		hm.put(-5, "Chile");
 		hm.put(2, "Argentina");
 		hm.put(3, "Brasil");
+		hm.put(5, "USA version 2");
 
 		//-----------------------------------------------------------------------
 		// cargo el entrySet en un Map llamado resultado y lo recorro con un for
@@ -54,7 +55,15 @@ public class Ej09 {
         	
         }
         
+        // buscar una clave
+        System.out.println("Buscar una clave-----------");
+        int j = -5;
+        hm.containsKey(j);
+        System.out.println("Clave buscada: " + j + ", ¿Está?: " + hm.containsKey(j) );
+        System.out.println("Valor de clave buscada: " + j + ", Valor: " + hm.get(j) );
 
+        
+        
         // Recorrer con for ordenado
         System.out.println("Utilizar solo for ordenado-----------");
         int tamanio = hm.size();

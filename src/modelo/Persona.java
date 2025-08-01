@@ -21,7 +21,6 @@ public abstract class Persona {
 		String texto;
 		texto = "Persona [CI=" + getCi() + "]\n";
 		return texto;
-
 	}
 	
 	
