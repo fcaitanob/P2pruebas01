@@ -41,7 +41,7 @@ public class Administrador extends Persona {
 	public boolean agregarAlumno(Alumno a) {
         if (secAlumnos.size() < MAX_ALUMNO) {
             secAlumnos.add(a);
-            //a.agregarAdministrador(this);
+            //a.agregarAdministrador(this); // El alta de la relación se hace en la fachada
             return true;
         } else {
             System.out.println("No se puede agregar más de " + MAX_ALUMNO + " alumnos.");
