@@ -9,7 +9,7 @@ public class Perro {
 	private String nombre;
 	
 	public Perro(int identificador, LocalDate fechaNacimiento, String nombre) {
-		super();
+		//super();
 		this.identificador = identificador;
 		this.fechaNacimiento = fechaNacimiento;
 		this.nombre = nombre;
@@ -25,6 +25,23 @@ public class Perro {
 
 	public String getNombre() {
 		return nombre;
+	}
+
+	
+	
+	
+	
+	
+	public void setIdentificador(int identificador) {
+		this.identificador = identificador;
+	}
+
+	public void setFechaNacimiento(LocalDate fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 	public float calcularRacion() {
